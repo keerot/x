@@ -1,0 +1,243 @@
+.mainVideo{
+    bottom: 0;
+    left: 0;
+    padding: 2.5vw 2.5vw 2.5vw 4vw;
+    position: absolute;
+    width: 100%;
+    bottom: auto;
+    padding: 3.5vw 2.5vw 2.5vw 5vw;
+    top: 0;
+}
+
+a > video{
+    margin: auto;
+    display: block;
+    width: 100%;
+}
+
+.videoReel>a:hover{
+    text-decoration: none;
+    color:white;
+
+}
+
+.videoReel>a:before {
+    background: linear-gradient(rgba(0,0,0,0.5), transparent);
+    bottom: auto;
+    top: 0;
+
+    /* color: white;
+    display: block;
+    margin-top: 90px;
+    position: relative; */
+}
+.videoReel>a:before {
+    /* background: linear-gradient(transparent, rgba(0,0,0,0.5)); */
+    bottom: 0;
+    content: "";
+    height: 50%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.mainVideo h3:before {
+    background: #ffffff;
+    border-radius: 0 2px 2px 0;
+    content: "";
+    height: 2px;
+    left: 1vw;
+    position: absolute;
+    top: 11vh;
+    width: 3vw;
+    z-index: 2;
+}
+
+.noPadding{
+    padding-right: 0px; 
+     padding-left: 0px;
+}
+
+
+
+
+
+
+
+/*Yksittainen tyosivu*/
+
+.workcontainer{
+    margin: 0 auto;
+    max-width: 1170px;
+        margin: 100px 0px ;
+        padding: 0 10%;
+        transition: margin 1s ease;
+    
+}
+
+.workcontainer aside>div:before {
+    background: #ccc;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 1px;
+}
+
+.workcontainer aside>div {
+    margin-bottom: 45px;
+    padding-left: 22px;
+    position: relative;
+}
+
+.workcontainer article>div {
+    padding-right: 60px;
+}
+
+.workcontainer article>div>p {
+  
+        margin: 0 0 31px;
+    
+}
+
+
+
+/* Video preview */
+
+.preview{
+    height: 70vh;
+    /* height: 400px; */
+
+}
+
+.work-content {
+    bottom: 0;
+    left: 0;
+    padding: 0 30px 125px 30px;
+    position: absolute;
+    text-align: center;
+    transition: all 0.25s ease;
+    width: 100%;
+    z-index: 999;
+    color:white;
+}
+
+
+@media (min-width: 768px){
+     .container {
+        width: 750px;
+    }
+}
+
+
+
+@media (min-width: 992px){
+.container {
+    width: 970px;
+}
+}
+
+
+
+
+
+@media (max-width: 991px){
+    .workcontainer{
+    
+     
+            margin: 68px 0px ;
+            padding: 0 10%;
+         
+        
+    }
+
+    
+    .work-content {
+        bottom: auto;
+        left: auto;
+        opacity: 1;
+        padding: 30px 30px 0 30px;
+        position: relative;
+        text-align: center;
+        color:black;
+    }
+}
+
+.work-content-video-play-center{
+    left: 50%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+.work-content-video-play{
+ 
+    cursor: pointer;
+
+    border: 2px white solid;
+    border-radius: 100%;
+    display: inline-block;
+    height: 105px;
+    margin: 0;
+     transition: all 0.25s ease;
+    width: 105px;
+}
+
+.work-content-video-play span:before {
+    top: 45%;
+    transform: rotate(45deg);
+}
+.work-content-video-play span:before, .work-content-video-play span:after {
+    background: white;
+    border-radius: 2px;
+    content: "";
+    height: 2px;
+    left: 50%;
+    margin-left: -3px;
+    position: absolute;
+    width: 13px;
+}
+
+.work-content-video-play span:after {
+    bottom: 45%;
+    transform: rotate(-45deg);
+}
+
+.video-scroller {
+    animation: slideDown 2s ease infinite;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-name: slideDown;
+    background: white;
+    border-radius: 2px 2px 0 0;
+    bottom: 0;
+    height: 80px;
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    z-index: 999;
+}
+
+.video-scroller:before {
+    background: rgba(255,255,255,0.2);
+    border-radius: 2px 2px 0 0;
+    bottom: 0;
+    content: "";
+    height: 80px;
+    position: absolute;
+    left: 0;
+    width: 2px;
+    z-index: 2;
+}
+
+.mt-7{
+    margin-top: 7rem!important;
+
+}
