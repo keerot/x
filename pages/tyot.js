@@ -5,6 +5,7 @@ import Contex from '../components/contex'
 import Footer from '../components/footer'
 import Nav from '../components/nav'
 import VideoExample from '../components/video'
+import data from '../static/tyot.json'
 
 
 
@@ -17,7 +18,7 @@ const Tyot = props => {
     return (
 
         <>
-            <HeadMod title={'Katso töitämme'} />
+            <HeadMod title={'Katso töitämme - Awara'} />
             <Nav theme={'black'} />
             <section>
                 <div className="container">
@@ -26,20 +27,27 @@ const Tyot = props => {
                         <p>Intohimolla luodut tarinat</p>
                     </div>
                     <VideoExample
-                        description={'Tunnetta kehissä'}
-                        title={'Showreel'}
-                        url={'tunnetta-kehissa'}
-                     
+                        customer={'Awara 2019'}
+                        work={'Showreel'}
+                        url={'showreel'}
+                        video_poster_url={'../static/showreel-short.m4v'}
+                        video_poster_image_url={'../static/showreel-poster.jpg'}
+
+
+
                         autoplay={true} />
 
 
                     <div className="row mt-5 mb-5">
-                        {props.works.map(work => (
+                        {data.map(work => !work.showreel && (
                             <div className="col-sm-12 col-md-6 mb-5 noPadding">
                                 <VideoExample
-                                    description={work.name}
-                                    title={work.customer}
+                                    work={work.name}
+                                    customer={work.customer}
                                     url={work.url}
+                                    video_url={work.video_url}
+                                    video_poster_url={work.video_poster_url}
+                                    video_poster_image_url={work.video_poster_image_url}
                                 />
                             </div>
                         ))}
@@ -92,19 +100,19 @@ const Tyot = props => {
 
 
 
-Tyot.getInitialProps = async function ({ query }) {
+// Tyot.getInitialProps = async function ({ query }) {
 
-    const res = await fetch('http://localhost:1337/works');
-    const data = await res.json();
+//     const res = await fetch('http://localhost:1337/works');
+//     const data = await res.json();
 
-    console.log(`Show data fetched. Count: ${query.tyo}`);
-    const first = data.find(work => work.FirstWork & work)
+//     console.log(`Show data fetched. Count: ${query.tyo}`);
+//     const first = data.find(work => work.FirstWork & work)
 
-    return {
-        works: data,
-        firstWork: first
-    }
-}
+//     return {
+//         works: data,
+//         firstWork: first
+//     }
+// }
 
 
 export default Tyot;

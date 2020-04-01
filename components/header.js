@@ -4,7 +4,8 @@ import ReactPlayer from 'react-player'
 import fetch from 'isomorphic-unfetch';
 import { Converter } from 'showdown';
 import Nav from '../components/nav'
- 
+import VideoRepeater from '../components/videoRepeater'
+
 
 
 
@@ -16,22 +17,22 @@ class Header extends React.Component {
         this.myImg = React.createRef()
 
     }
-    componentDidMount () {
-        console.log(this.myImg.current.offsetHeight)
-        if(this.myImg.current.offsetHeight !== 0) {
-            
-            this.setState({imgHeight: this.myImg.current.offsetHeight});
-        }
-      }
+    componentDidMount() {
+        // console.log(this.myImg.current.offsetHeight)
+        // if(this.myImg.current.offsetHeight !== 0) {
+
+        //     this.setState({imgHeight: this.myImg.current.offsetHeight});
+        // }
+    }
     static async getInitialProps({ query }) {
-        const res = await fetch(`http://localhost:1337/works?url_contains=${query.tyo}`)
-        const data = await res.json()
-        const converter = new Converter({ metadata: true })
-        const content = converter.makeHtml(data[0].description)
-        return {
-            work: data[0],
-            content: content
-        }
+        // const res = await fetch(`http://localhost:1337/works?url_contains=${query.tyo}`)
+        // const data = await res.json()
+        // const converter = new Converter({ metadata: true })
+        // const content = converter.makeHtml(data[0].description)
+        // return {
+        //     work: data[0],
+        //     content: content
+        // }
 
     }
 
@@ -39,11 +40,11 @@ class Header extends React.Component {
         this.setState({ playing: !this.state.playing })
     }
 
-    
-    render(props) {
-        const { work } = this.props
 
-        let black
+    render(props) {
+        // const { work } = this.props
+
+        let black  
         let container
         let displayNone
         let full
@@ -59,50 +60,42 @@ class Header extends React.Component {
             autoPlay = 'autoPlay'
             heightAuto = 'height-auto'
         }
-    
+
         // console.log('im',this.state.imgHeight)
 
-         return (
+        return (
             <>
-                <Nav theme={black} />
-                <div   className={`homepage-video homepage-video-height  ${full || ''} `}  >
+                <Nav theme={black} main={true} />
+                <div className={`homepage-video homepage-video-height   ${full || ''} `}  >
                     <div class={`header-video-wrapper-home ${heightAuto || ''}`}>
                         <div className={`video-reel-loop ${displayNone || ''}`}>
                             <div>
-                                <video className="video-reel-preview" preload="auto" loop muted autoPlay  >
-                                    <source src="../static/Sukoinen.mov" type="" />
+                                <video  className="video-reel-preview" preload="auto" loop muted
+                                poster={'../static/showreel-poster.jpg'}
+                                autoPlay  >
+                                    <source src={'../static/showreel-short.m4v'} type="" />
                                 </video>
                             </div>
                         </div>
-                        <div className={`video-reel-full  mt-3 ${displayBlock || ''}`}>
-                            <div id="video-reel-wrapper" style={{height: this.state.imgHeight}}   className="container preview">
-                                <img
-                                   ref={this.myImg}
-                                    src="https://cdn.frame.is/wp-content/uploads/Surfer-03-NEW-mobile-1.png"
-                                    class={` ${displayNone || ''}`}
-                                    alt="Video Reel"
-                                    sizes="(max-width: 1920px) 100vw, 1920px" />
-                                <ReactPlayer
-                                    url='https://vimeo.com/255727878'
-                                    playing={autoPlay}
-                                    controls
-                                    width={'100%'}
-                                    height={'100%'}
-                                    onEnded={this.toggle.bind(this)} />
+                       <VideoRepeater
+                       displayBlock={displayBlock}
+                       displayNone={displayNone}
+                       autoPlay={autoPlay}
+                       overText={false}
+                       toggle={this.toggle.bind(this)}
+                       videoUrl={'https://www.youtube.com/watch?v=ubz-M1ZmPVo&feature=youtu.be'}
+                       videoPosterImageUrl={'../static/showreel-poster.jpg'}
+                       />
+                        <div className={`homepage-content ${displayNone || ''}`}>
+                            <div>
+                                <h1>Olemme visuaalisia <b>tarinankertojia</b></h1>
+                                <a onClick={this.toggle.bind(this)} className={`video-play ${displayNone || ''}`} data-video="video-reel" data-preview="video-reel-preview">
+                                    <span>
+                                    </span>
+                                </a>
                             </div>
                         </div>
-
-                    <div className={`homepage-content ${displayNone || ''}`}>
-                        <div>
-                            <h1>Sinun tarinasi</h1>
-                            <a onClick={this.toggle.bind(this)} className={`video-play ${displayNone || ''}`} data-video="video-reel" data-preview="video-reel-preview">
-                                <span>
-                                </span>
-                            </a>
-                        </div>
                     </div>
-                    </div>
-
 
 
 

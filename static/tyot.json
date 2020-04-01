@@ -1,0 +1,118 @@
+[
+	{
+		"id": 1,
+		"showreel": true,
+		"name": "Showreel",
+		"description": "2019 showreel nyt ulkona",
+		"url": "showreel",
+		"video_title": "Showreel",
+		"customer": "Awara",
+		"created_at": "2019-10-22T11:33:19.620Z",
+		"updated_at": "2019-10-22T15:23:30.947Z",
+		"video_url":"https://www.youtube.com/watch?v=ubz-M1ZmPVo",
+		"video_poster_url":"../static/showreel-short.m4v",
+		"video_poster_image_url":"../static/showreel-poster.jpg",
+		"prosess": [
+			{
+				"id": 1,
+				"step": "Käsikirjoitus"
+			},
+			{
+				"id": 2,
+				"step": "Tuotanto"
+			},
+			{
+				"id": 3,
+				"step": "Editointi"
+			},
+			{
+				"id": 4,
+				"step": "Julkaisu"
+			}
+		]
+	},
+	{
+		"id": 2,
+		"showreel": false,
+		"name": "Petrin tarina",
+		"description": "Kerroimme Metsurityöt Oksasen tarinan videolla.",
+		"url": "petrin-tarina",
+		"video_title": "Petrin tarina",
+		"customer": "Metsurityöt Oksanen",
+		"created_at": "2019-10-22T11:33:19.620Z",
+		"updated_at": "2019-10-22T15:23:30.947Z",
+		"video_url":"https://www.youtube.com/watch?v=-rfZdg0NMOc",
+		"video_poster_url":"../static/petrinTarina-short.m4v",
+		"video_poster_image_url":"../static/petrinTarina-poster.jpg",
+		"prosess": [
+			{
+				"id": 1,
+				"step": "Käsikirjoitus"
+			},
+			{
+				"id": 2,
+				"step": "Videokuvaus"
+			},
+			{
+				"id": 3,
+				"step": "Editointi"
+			}
+		]
+	},
+	{
+		"id": 3,
+		"showreel": false,
+		"name": "Metsurisi, Petri",
+		"description": "Metsurityöt Oksanen halusi lisää näkyvyyttä Facebookissa, joten teimme hänelle somevideon. Video on myös tulossa metsurityöt.fi sivuille.",
+		"url": "metsuri-oksanen",
+		"video_title": "Metsurisi, Petri",
+		"customer": "Metsurityöt Oksanen",
+		"created_at": "2019-10-22T11:33:19.620Z",
+		"updated_at": "2019-10-22T15:23:30.947Z",
+		"video_url":"https://www.youtube.com/watch?v=DL77MbqW2Y0&feature=youtu.be",
+		"video_poster_url":"../static/metsuri-oksanen-short.m4v",
+		"video_poster_image_url":"../static/metsuri-oksanen-poster.jpg",
+		"prosess": [
+			{
+				"id": 1,
+				"step": "Käsikirjoitus"
+			},
+			{
+				"id": 2,
+				"step": "Videokuvaus"
+			},
+			{
+				"id": 3,
+				"step": "Editointi"
+			}
+		]
+	},
+	{
+		"id": 4,
+		"name": "Yhteisön voima",
+		"showreel": false,
+		"description": "Tuotimme Turku Frontend tapaamisille esittelyvideon.",
+		"url": "turku-frontend",
+		"video_title": "Yhteisön voima",
+		"customer": "Turku Frontend",
+		"created_at": "2019-10-22T11:33:19.620Z",
+		"updated_at": "2019-10-22T15:23:30.947Z",
+		"video_url":"https://www.youtube.com/watch?v=Me2-qBjtw6w&feature=youtu.be",
+		"video_poster_url":"../static/frontend-short.m4v",
+		"video_poster_image_url":"../static/frontend-poster.jpg",
+		"prosess": [
+			{
+				"id": 1,
+				"step": "Käsikirjoitus"
+			},
+			{
+				"id": 2,
+				"step": "Videokuvaus"
+			},
+			{
+				"id": 3,
+				"step": "Editointi"
+			}
+		]
+	}
+]

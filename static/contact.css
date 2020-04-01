@@ -1,0 +1,66 @@
+.people img{
+    /* height: 100%; */
+    width: 100%;
+}
+.people>address> p{
+    margin-bottom: 0;
+ 
+}
+.people>address> p> a{
+    margin-bottom: 0;
+    color:black;
+
+}
+.people>address> p> a:hover{
+     color:black;
+
+}
+.people .nav_icon{
+    padding: 0.5rem;
+    color:black;
+}
+
+ 
+
+
+.seperator {
+    height: 30%;
+    width: 1px;
+    background: black;
+     bottom: 0;
+    position: absolute;
+    left: 50%;
+  }
+  @media (max-width: 575px){
+    .seperator {
+        height: 30%;
+        width: 0px;
+        background: black;
+         bottom: 0;
+        position: absolute;
+        left: 50%;
+      }
+  }
+  
+
+
+  .form-row input[type="text"],input[type="email"],input[type="tel"], textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px #ccc solid;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px !important;
+    padding: 15px 25px !important;
+    transition: all 0.25s ease;
+    width: 100%;
+}
+
+textarea:focus, input:focus{
+    border: 1px #000000 solid !important;
+    outline: none;
+}
+  
+
+

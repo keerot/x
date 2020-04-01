@@ -1,0 +1,17 @@
+.policy p{
+    font-weight: bold;
+    margin-top: 1em !important;
+}
+ 
+.policy span{
+display: block;
+}
+ 
+.policy{
+    margin-top: 5em;
+}
+ 
+.policy h1{
+   text-align: center;
+ margin-bottom: 1em;
+}

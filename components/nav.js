@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
-import logo from '../static/logo.svg'
+import logo from '../static/logoBlack.svg'
+import logoWhite from '../static/logoWhite.svg'
+import NavBar from './navBar'
 
 const links = [
   { href: 'https://zeit.co/now', label: 'ZEIT' },
@@ -11,26 +13,28 @@ const links = [
 })
 
 const Nav = props => (
-  <nav style={{ color: props.theme }} className="black-theme">
-    <div className="  reunat">
-      <div className="row">
+  <nav style={{ color: props.theme }} className="black-theme mt-3">
+    <div className="  ">
+      <div className="row mt-2 mx-0">
         <Link href='/'>
-          <div style={{ color: props.theme }} className="col-4 black-theme col-md-4	col-2 text-center pl-3  pl-sm-5  pl-md-5 pr-3">
-            <a>
-            <img src={logo} alt="Logo" className="logo" />
+          <div style={{ color: props.theme }} className="col-6 black-theme col-md-4	col-2 text-center pl-3  pl-sm-5  pl-md-5 pr-3">
+            <a className={`logo ${props.theme === 'black' && 'logoBlack'} `}>
+            {/* <img src={props.theme === 'black' ? 'logo' : 'logoWhite'} alt="Logo" className="logo" /> */}
 
             </a>
             {/* WALOI Production */}
      </div>
         </Link>
-        <div className="col-4 col-md-4">
+        <div className="col-3 col-md-4">
           <nav className="
+          mt-3
           d-none 
           d-sm-none 
           d-sm-none
           d-md-block
-          ">
-            <ul className="mx-auto text-center">
+          "> 
+          <NavBar theme={props.theme } main={props.main} /> 
+            {/* <ul className="mx-auto text-center">
               <li>
                 <Link href='/tyot'>
                   <a className="black-theme" style={{ color: props.theme }}>Työt</a>
@@ -46,19 +50,26 @@ const Nav = props => (
                   <a className="black-theme" style={{ color: props.theme }}>Kahville</a>
                 </Link>
               </li>
-            </ul>
+            </ul> */}
           </nav>
         
         </div>
-        <div className="col-4 col-md-4 text-center">
+        <div className="col-3 col-md-4 text-center">
           <div className="
+          mt-3
            d-none 
           d-sm-none 
           d-sm-none
           d-md-block">
-          <i style={{ color: props.theme }} class="black-theme fa fa-facebook-square nav_icon"></i>
-          <i style={{ color: props.theme }} class="black-theme fa fa-instagram nav_icon"></i>
-          <i style={{ color: props.theme }} class="black-theme fa fa-linkedin nav_icon"></i>
+          <a target="_blank"  rel="noopener"href="https://www.youtube.com/channel/UCFAnCSyU_TIxzPXn_tMxXKg/featured">
+             <i style={{ color: props.theme }} className="black-theme fa fa-youtube nav_icon"></i>
+          </a>
+          <a target="_blank"  rel="noopener" href="https://www.instagram.com/awaraproductions/">
+            <i style={{ color: props.theme }} className="black-theme fa fa-instagram nav_icon"></i>
+          </a>
+          <a target="_blank"  rel="noopener" href="https://www.linkedin.com/company/awara-productions">
+             <i style={{ color: props.theme }} className="black-theme fa fa-linkedin nav_icon"></i>
+          </a>
           </div>
           <div className="">
           <label   className="  

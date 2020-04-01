@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 import ReactPlayer from 'react-player'
+import VideoRepeater from './videoRepeater'
+
 
 
 
@@ -17,11 +19,11 @@ class VideoPreview extends React.Component {
     }
 
     componentDidMount () {
-        console.log(this.myImg.current.offsetHeight)
-        if(this.myImg.current.offsetHeight !== 0) {
+        // console.log(this.myImg.current.offsetHeight)
+        // if(this.myImg.current.offsetHeight !== 0) {
             
-            this.setState({imgHeight: this.myImg.current.offsetHeight });
-        }
+        //     this.setState({imgHeight: this.myImg.current.offsetHeight });
+        // }
       }
     toggle() {
         this.setState({ addClass: !this.state.addClass });
@@ -39,12 +41,14 @@ class VideoPreview extends React.Component {
 
                     <div className={`video-reel-loop ${this.props.displayNone || ''}`}>
                         <div className={`${this.props.container || ''} ${this.props.displayNone || ''}`}>
-                            <video className="video-reel-preview" preload="auto" loop muted autoPlay  >
-                                <source src="https://player.vimeo.com/external/262401968.hd.mp4?s=c53918ff231b0824a7b3c1ec6e1f6459faa4138d&amp;profile_id=175" type="" />
+                            <video className="video-reel-preview" preload="auto" loop muted
+                            poster={this.props.siteInformation.video_poster_image_url}
+                            autoPlay  >
+                                <source src={this.props.siteInformation.video_poster_url} type="" />
                             </video>
                         </div>
                     </div>
-                    <div className={`video-reel-full  mt-3 ${this.props.displayBlock || ''}`}>
+                    {/* <div className={`video-reel-full  mt-3 ${this.props.displayBlock || ''}`}>
                         <div id="video-reel-wrapper"  style={{height: this.state.imgHeight}} className="container preview">
                             <img
                                 ref={this.myImg}
@@ -53,14 +57,26 @@ class VideoPreview extends React.Component {
                                 alt="Video Reel"
                                 sizes="(max-width: 1920px) 100vw, 1920px" />
                             <ReactPlayer
-                                url='https://vimeo.com/255727878'
+                                url='https://www.youtube.com/watch?v=Nc6r-80Xomc'
                                 playing={this.props.autoPlay}
                                 controls
                                 width={'100%'}
                                 height={'100%'}
+                                className='react-player'
+
                                 onEnded={this.props.play} />
                         </div>
-                    </div>
+                    </div> */}
+
+                    <VideoRepeater
+                       displayBlock={this.props.displayBlock}
+                       displayNone={this.props.displayNone}
+                       autoPlay={this.props.autoPlay}
+                       overText={false}
+                       toggle={this.props.play}
+                       videoUrl={this.props.siteInformation.video_url}
+                       videoPosterImageUrl={this.props.siteInformation.video_poster_image_url}
+                       />
                 </div>
 
                 <div className={`work-content ${this.props.displayNone || ''}`}>

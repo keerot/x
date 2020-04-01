@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "now-build": "next build"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
@@ -17,10 +18,15 @@
     "raw-loader": "^3.1.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-ga": "^2.7.0",
     "react-markdown": "^4.2.2",
     "react-player": "^1.13.0",
     "reactstrap": "^8.0.1",
     "remarkable": "^2.0.0",
+    "serveless": "0.0.2",
     "showdown": "^1.9.0"
+  },
+  "devDependencies": {
+    "serverless-next.js": "^1.4.3"
   }
 }

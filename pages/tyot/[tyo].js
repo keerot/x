@@ -1,4 +1,6 @@
 import { useRouter, withRouter } from 'next/router';
+import data from '../../static/tyot.json'
+
 import Nav from '../../components/nav'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
@@ -15,32 +17,43 @@ import React from 'react'
 class Work extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { playing: false, imgHeight: 400}
+    this.state = { playing: false, imgHeight: 400 }
     this.myImg = React.createRef()
   }
-  componentDidMount () {
+  componentDidMount() {
     console.log(this.myImg)
-    if(this.myImg.current.offsetHeight !== 0) {
-        
-        this.setState({imgHeight: this.myImg.current.offsetHeight});
+    if (this.myImg.current.offsetHeight !== 0) {
+
+      this.setState({ imgHeight: this.myImg.current.offsetHeight });
     }
   }
- 
+
 
   static async getInitialProps({ query }) {
-    const res = await fetch(`http://localhost:1337/works?url_contains=${query.tyo}`)
-    const data = await res.json()
-    console.log('huono', data.length )
-    if (data.length === 0 ) return {work: data}
-    
-    const converter = new Converter({ metadata: true })
-    const content = converter.makeHtml(data[0].description)
-    const meta = converter.getMetadata()
-    return {
-      work: data[0],
+    // const res = await fetch(`http://localhost:1337/works?url_contains=${query.tyo}`)
+    // const data = await res.json()
+    // console.log('huono', data.length )
+    // if (data.length === 0 ) return {work: data}
+
+    // const converter = new Converter({ metadata: true })
+    // const content = converter.makeHtml(data[0].description)
+    // const meta = converter.getMetadata()
+    // return {
+    //   work: data[0],
+    //   content: content
+    // }
+
+
+    const finded = data.filter(work => work.url ===  query.tyo)
+    const work = finded[0]
+         const converter = new Converter({ metadata: true })
+
+    const content = converter.makeHtml(work.description)
+
+     return {
+      work: work,
       content: content
     }
-
   }
 
   toggle() {
@@ -49,6 +62,10 @@ class Work extends React.Component {
 
   render(props) {
     const { work } = this.props
+
+
+   
+
 
     let black
     let container
@@ -64,16 +81,15 @@ class Work extends React.Component {
       displayBlock = 'd-block'
       autoPlay = 'autoPlay'
     }
-    console.log('work', work)
-      if (work === 0) return <Error />
- 
+     if (work === 0) return <Error />
+
 
     console.log(work)
     return (
       <>
         <main>
-          <HeadMod title={`${work.name} -Waloi Productions`} />
-          <Nav theme={black} />
+          <HeadMod title={`${work.name} - Awara`} />
+          <Nav theme={black} main={true}/>
           <VideoPreview autoPlay={autoPlay}
             displayBlock={displayBlock}
             full={full}
@@ -81,10 +97,13 @@ class Work extends React.Component {
             container={container}
             play={this.toggle.bind(this)}
             videoTitle={work.video_title}
-            ref={this.myImg}/>
+
+            siteInformation={work}
+
+            ref={this.myImg} />
           <section className="container-fluid workcontainer">
             <div className="row">
-              <article className="col-xs-12  col-sm-8">
+              <article className="col-xs-12 mb-4  col-sm-8">
                 <div>
                   <div dangerouslySetInnerHTML={{ __html: this.props.content }} />
                 </div>

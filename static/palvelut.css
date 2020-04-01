@@ -1,0 +1,52 @@
+
+.service> div{
+    /* border: 1px solid black;
+     */
+     /* box-shadow: 20px 20px 60px rgba(2, 8, 22, 0.10); */
+     margin: 5px;
+     padding: 35px;
+     border: 1px solid #00000014;
+     text-align: center;
+     min-height: 301px;
+   
+}
+
+.service img{
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 0.5em !important;
+    height: 100px;
+}
+
+.service  img:last-of-type{
+    width: 25%;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 0.5em !important;
+}
+
+.service h3{
+    /* font-family: 'Noto Sans', sans-serif; */
+    margin-bottom: 1rem;
+
+}
+.service b{
+    /* font-family: 'Montserrat', sans-serif; */
+    color:red;
+
+}
+
+.seperator_work {
+    /* height: 30%; */
+    /* border: 1px solid black;
+    width: 100%;
+    background: black;
+    margin: 50px 0px 50px 0px;
+    position: relative; */
+    /* left: 50%; */
+  }
+
+  .service{
+      margin-bottom:50px;
+  }

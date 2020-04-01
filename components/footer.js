@@ -1,48 +1,72 @@
 import React from 'react'
 import Link from 'next/link'
+import NavBar from './navBar'
+import { initGA, logPageView } from './googleAnalytics'
 
 
 
-const Footer = () => (
+export default class Footer extends React.Component {
+  componentDidMount() {
+    if (!window.GA_INITIALIZED) {
+      initGA()
+      window.GA_INITIALIZED = true
+    }
+    logPageView()
+  }
+
+  render() {
+    return (
   <>
   <div className="footer container-fluid pb-2">
 
     <div className="row vertical_midle">
       <div className="col-sm text-center">
-        WALOI Production
+      Awara Productions
+      <p>Turku</p>
   </div>
       <div className="col-sm text-center">
-        <ul className="mx-auto text-center">
-          <li>
-            <Link href='/'>
-              <a>Työt</a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/'>
-              <a>Palvelut</a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/'>
-              <a>Kahville</a>
-            </Link>
-          </li>
-        </ul>
+      <NavBar  /> 
+
       </div>
 
     </div>
-    <div>
-      <p>+358 44 292 1296</p>
-      <div className="bottom_border"></div>
+    
+    <div className='  container  '>
+    <div className='row   m-auto'>
+   
+      <div className='col-md-6 col-sm-6 d-block text-center mt-3'>
+      <p>
+        <span  className=' d-block'>Eero Forss</span>
+        <a href="tel:+358442921296">+358 44 292 1296</a>
+      </p>
+      </div>
+      <div className='col-md-6 col-sm-6 d-block mt-3'>
+      <p>
+        <span className='d-block'>Lauri Forss</span>
+        <a href="tel:+358403558226">+358 40 355 8226</a>
+      </p>
+      </div>
+      </div>
+      </div>
+
+      <div className="bottom_border mt-2"></div>
       <div className="sosial_media">
-        <i class="fa fa-facebook-square icon"></i>
-        <i class="fa fa-instagram icon"></i>
-        <i class="fa fa-linkedin icon"></i>
+      <a target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCFAnCSyU_TIxzPXn_tMxXKg/featured">
+             <i  class=" fa fa-youtube icon"></i>
+          </a>
+          <a target="_blank" rel="noopener" href="https://www.instagram.com/awaraproductions/">
+            <i  class=" fa fa-instagram icon"></i>
+          </a>
+          <a target="_blank" rel="noopener" href="https://www.linkedin.com/company/awara-productions">
+             <i  class=" fa fa-linkedin icon"></i>
+          </a>
       </div>
-      <div className="bottom">© 2019 Waloi Production</div>
-    </div>
-
+      <div className="bottom">© 2020 Awara Productions Oy</div>
+     
+    <Link  href={'/tietosuojailmoitus'}>
+       <span style={{color: '#bebebe', cursor: 'pointer'}}>Tietosuojailmoitus</span>
+       </Link>
+    
   </div>
   <input type="checkbox" id="drawer-toggle" className="d-none" />
   <nav id="nav-drawer" className="nav-mobile d-md-none">
@@ -50,38 +74,27 @@ const Footer = () => (
 		<span></span>
 		<span></span>
 	</label>
-  <ul className="mx-auto text-center">
-          <li>
-            <Link href='/tyot'>
-              <a>Työt</a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/palvelut'>
-              <a>Palvelut</a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/kahville'>
-              <a>Kahville</a>
-            </Link>
-          </li>
-        </ul>
+  <NavBar  theme={'white' } /> 
         <div className="
         text-white
 
 
           ">
-          <i  class=" fa fa-facebook-square nav_icon"></i>
-          <i  class="fa fa-instagram nav_icon"></i>
-          <i  class=" fa fa-linkedin nav_icon"></i>
+        <a target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCFAnCSyU_TIxzPXn_tMxXKg/featured">
+             <i  class=" fa fa-youtube nav_icon"></i>
+          </a>
+          <a target="_blank" rel="noopener" href="https://www.instagram.com/awaraproductions/">
+            <i  class=" fa fa-instagram nav_icon"></i>
+          </a>
+          <a target="_blank" rel="noopener" href="https://www.linkedin.com/company/awara-productions">
+             <i  class=" fa fa-linkedin nav_icon"></i>
+          </a>
           </div>
   </nav>
+  <logPageView />
   </>)
 
-function handleClick(e) {
-  e.preventDefault();
-  console.log('The link was clicked.');
+
+}
 }
 
-export default Footer

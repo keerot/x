@@ -13,7 +13,7 @@ const withPlugins = require('next-compose-plugins')
 
 
     const nextConfig = {
-      distDir: 'build',
+      target: 'serverless',
       webpack: (config) => {
         config.module.rules.push(
           {
