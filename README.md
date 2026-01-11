@@ -1,6 +1,8 @@
 # Waloi
 
-Next.js -website 
+Next.js -website
+
+🌐 **Live demo**: [https://x-lac-one.vercel.app/](https://x-lac-one.vercel.app/) 
 ## Teknologiat
 
 - **Next.js**: 9.1.1
